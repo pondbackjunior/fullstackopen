@@ -1,0 +1,37 @@
+{
+  "name": "phonebook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "build": "vite build",
+    "server": "json-server -p 3001 db.json",
+    "deploy": "fly deploy",
+    "logs:prod": "fly logs",
+    "lint": "eslint ."
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "json-server": "^1.0.0-beta.3",
+    "mongodb": "^6.19.0",
+    "mongoose": "^8.18.1",
+    "morgan": "^1.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@flydotio/dockerfile": "^0.7.10",
+    "@stylistic/eslint-plugin-js": "^4.4.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "eslint": "^9.36.0",
+    "globals": "^16.4.0"
+  }
+}
