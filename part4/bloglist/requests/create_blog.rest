@@ -1,0 +1,13 @@
+GET http://localhost:3001/api/blogs/
+
+###
+POST http://localhost:3001/api/blogs/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMjM0IiwiaWQiOiI2OTBhNmI1ZWFkM2Q2NDI5YWM4MmYzZGQiLCJpYXQiOjE3NjIyOTI0MjV9.gOTRbQ48G0lwnjjIV1pbS3SgurWudeF8CETmk0fNZoo
+
+{
+    "title": "New blog 4",
+    "author": "Test Author",
+    "url": "google.com",
+    "likes": "15"
+}
