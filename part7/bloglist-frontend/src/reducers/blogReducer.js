@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import blogService from '../services/blogs'
+import { createSlice } from "@reduxjs/toolkit"
+import blogService from "../services/blogs"
 
 const blogSlice = createSlice({
   name: "blogs",
@@ -7,9 +7,7 @@ const blogSlice = createSlice({
   reducers: {
     likeBlog(state, action) {
       const id = action.payload
-      return state.map(b =>
-        b.id !== id ? b : { ...b, likes: b.likes + 1 }
-      )
+      return state.map((b) => (b.id !== id ? b : { ...b, likes: b.likes + 1 }))
     },
     addBlog(state, action) {
       state.push(action.payload)
@@ -19,9 +17,9 @@ const blogSlice = createSlice({
     },
     deleteBlog(state, action) {
       const id = action.payload
-      return state.filter(b => b.id !== id)
-    }
-  }
+      return state.filter((b) => b.id !== id)
+    },
+  },
 })
 
 export const { addBlog, setBlogs, likeBlog, deleteBlog } = blogSlice.actions
@@ -37,19 +35,18 @@ export const appendBlog = (blogObject) => {
   return async (dispatch) => {
     const newBlog = await blogService.create(blogObject)
 
-    if (newBlog && newBlog.user && typeof newBlog.user === 'string') {
+    if (newBlog && newBlog.user && typeof newBlog.user === "string") {
       try {
-        const logged = window.localStorage.getItem('loggedBlogappUser')
+        const logged = window.localStorage.getItem("loggedBlogappUser")
         const currentUser = logged ? JSON.parse(logged) : null
         if (currentUser) {
           newBlog.user = {
             username: currentUser.username,
             name: currentUser.name,
-            id: currentUser.id
+            id: currentUser.id,
           }
         }
-      } catch (err) {
-      }
+      } catch (err) {}
     }
 
     dispatch(addBlog(newBlog))

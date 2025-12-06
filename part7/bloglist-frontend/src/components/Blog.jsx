@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux"
 import { handleLikeBlog, handleRemoveBlog } from "../reducers/blogReducer"
 
 import Button from "react-bootstrap/Button"
@@ -20,10 +20,14 @@ const Blog = ({ blog }) => {
         <td className="blog-author">{blog.author}</td>
         <td>
           {!expanded && (
-            <Button variant="info" onClick={() => setExpanded(true)}>view</Button>
+            <Button variant="info" onClick={() => setExpanded(true)}>
+              view
+            </Button>
           )}
           {expanded && (
-            <Button variant="info" onClick={() => setExpanded(false)}>hide</Button>
+            <Button variant="info" onClick={() => setExpanded(false)}>
+              hide
+            </Button>
           )}
         </td>
       </tr>
@@ -44,7 +48,7 @@ const Blog = ({ blog }) => {
                 like
               </Button>
             </div>
-            <br/>
+            <br />
             {canRemove && (
               <div className="blog-remove">
                 <Button
@@ -52,7 +56,7 @@ const Blog = ({ blog }) => {
                   onClick={async () => {
                     if (
                       window.confirm(
-                        `Remove blog ${blog.title} by ${blog.author}?`
+                        `Remove blog ${blog.title} by ${blog.author}?`,
                       )
                     ) {
                       dispatch(handleRemoveBlog(blog.id))

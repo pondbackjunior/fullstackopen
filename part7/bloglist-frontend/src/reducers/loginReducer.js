@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import loginService from '../services/login'
+import { createSlice } from "@reduxjs/toolkit"
+import loginService from "../services/login"
 
 const loginSlice = createSlice({
   name: "login",
@@ -7,8 +7,8 @@ const loginSlice = createSlice({
   reducers: {
     login(state, action) {
       return action.payload
-    }
-  }
+    },
+  },
 })
 
 export const { login } = loginSlice.actions

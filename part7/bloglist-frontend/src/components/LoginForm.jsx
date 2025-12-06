@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { handleLogin } from '../reducers/loginReducer'
+import { handleLogin } from "../reducers/loginReducer"
 import { useDispatch } from "react-redux"
 
 import Button from "react-bootstrap/Button"
@@ -12,18 +12,18 @@ const LoginForm = ({ setUser, showMessage }) => {
   const [password, setPassword] = useState("")
 
   const performLogin = async (event) => {
-  event.preventDefault()
-  try {
+    event.preventDefault()
+    try {
       const user = await dispatch(handleLogin({ username, password }))
-      if (!user) throw new Error('login returned no user')
+      if (!user) throw new Error("login returned no user")
       window.localStorage.setItem("loggedBlogappUser", JSON.stringify(user))
       setUser(user)
       setUsername("")
       setPassword("")
       showMessage(`Welcome, ${user.username}!`)
-  } catch {
+    } catch {
       showMessage("wrong credentials", "danger")
-  }
+    }
   }
 
   return (
@@ -50,7 +50,9 @@ const LoginForm = ({ setUser, showMessage }) => {
           />
         </Form.Label>
       </Form.Group>
-      <Button variant="primary" type="submit">login</Button>
+      <Button variant="primary" type="submit">
+        login
+      </Button>
     </Form>
   )
 }

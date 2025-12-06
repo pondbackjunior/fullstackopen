@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { useDispatch } from 'react-redux'
-import { appendBlog } from '../reducers/blogReducer'
+import { useDispatch } from "react-redux"
+import { appendBlog } from "../reducers/blogReducer"
 
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
@@ -34,7 +34,10 @@ const BlogForm = ({ setBlogs, showMessage }) => {
         </Button>
       </div>
       <Form style={showWhenVisible}>
-        <Button variant="warning" onClick={() => setCreateBlogSectionVisible(false)}>
+        <Button
+          variant="warning"
+          onClick={() => setCreateBlogSectionVisible(false)}
+        >
           cancel
         </Button>
         <h2>Create new</h2>
@@ -62,11 +65,8 @@ const BlogForm = ({ setBlogs, showMessage }) => {
             onChange={({ target }) => setUrl(target.value)}
           />
         </Form.Group>
-        <br/>
-        <Button
-          variant="success"
-          onClick={createBlog}
-        >
+        <br />
+        <Button variant="success" onClick={createBlog}>
           create
         </Button>
       </Form>
